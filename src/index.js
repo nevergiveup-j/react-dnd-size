@@ -1,3 +1,7 @@
-import store from './store';
+import DragContext from './DragContext';
+import DragTarget from './DragTarget';
 
-export default store;
+export {
+  DragContext,
+  DragTarget,
+};

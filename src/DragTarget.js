@@ -3,14 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 class DragTarget extends Component {
-  propTypes = {
-    onDragStart: PropTypes.func,
-    // style: PropTypes.object,
-  }
-  defaultProps = {
-    onDragStart: () => {},
-    // style: {},
-  }
   constructor(props) {
     super(props);
     this.state = {
@@ -21,9 +13,8 @@ class DragTarget extends Component {
     };
     this.onDragStart = this.onDragStart.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
-    this.onMouseUp = this.onMouseUp.bind(this);
     this.onDragMove = this.onDragMove.bind(this);
-    // this.onDragUp = this.onDragUp.bind(this);
+    this.onDragUp = this.onDragUp.bind(this);
   }
   componentWillMount() {
     this.zIndex = 1;
@@ -59,7 +50,7 @@ class DragTarget extends Component {
       top: getBoundingClientRect.top - scrollTop,
     };
 
-    const cntPoiner = this.dragContext.length ? this.dragContext.getBoundingClientRect() : {};
+    const cntPoiner = this.dragContext ? this.dragContext.getBoundingClientRect() : {};
 
     this.zIndex += 1;
 
@@ -71,14 +62,8 @@ class DragTarget extends Component {
       style,
     }, () => {
       window.addEventListener('mousemove', this.onDragMove);
-      // window.addEventListener('mouseup', this.onDragUp);
+      window.addEventListener('mouseup', this.onDragUp);
     });
-  }
-  onMouseUp() {
-    document.body.style.userSelect = '';
-
-    window.removeEventListener('mousemove', this.onDragMove);
-    // window.removeEventListener('mouseup', this.onDragUp);
   }
   // 拖动移动
   onDragMove(event) {
@@ -88,7 +73,7 @@ class DragTarget extends Component {
     let eleX = event.pageX - mousePoiner.eleX;
     let eleY = event.pageY - mousePoiner.eleY;
 
-    if (this.dragContext.length) {
+    if (this.dragContext) {
       const limitMove = this.limitMove(eleX, eleY);
 
       if (limitMove) {
@@ -103,7 +88,12 @@ class DragTarget extends Component {
     this.setState({ style });
   }
   // 拖动松开
-  // onDragUp() {}
+  onDragUp() {
+    document.body.style.userSelect = '';
+
+    window.removeEventListener('mousemove', this.onDragMove);
+    window.removeEventListener('mouseup', this.onDragUp);
+  }
   /**
    * 设置默认Props
    * @param {object} props 参数
@@ -164,8 +154,7 @@ class DragTarget extends Component {
         }}
         className={cls}
         onDragStart={this.onDragStart}
-        onMouseDown={this.onMouseDown}
-        onMouseUp={this.onMouseUp}>
+        onMouseDown={this.onMouseDown}>
         {this.props.children}
         <div className="dnds-bar">
           <div className="dnds-bar-line dnds-bar-t">
@@ -189,5 +178,15 @@ class DragTarget extends Component {
     );
   }
 }
+
+DragTarget.defaultProps = {
+  onDragStart: () => {},
+  // style: {},
+};
+
+DragTarget.propTypes = {
+  onDragStart: PropTypes.func,
+  // style: PropTypes.object,
+};
 
 export default DragTarget;

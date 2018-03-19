@@ -4,13 +4,18 @@ class DragContext extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      cntID: 'dnds-context',
     };
   }
   componentDidMount() {
   }
   render() {
-    return null;
+    const { cntID } = this.state;
+    return (
+      <div id={cntID} className="dnds-context">
+        {this.props.children}
+      </div>
+    );
   }
 }
 

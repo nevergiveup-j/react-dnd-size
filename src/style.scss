@@ -1,0 +1,87 @@
+
+
+.dnds-context {
+    position: relative;
+    background: #ddd;
+}
+.dnds-target {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: red;
+    .dnds-bar {
+        &-line {
+            position: absolute;
+            background-color: #08a1ef;
+        }
+        &-radius {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid #08a1ef;
+            border-radius: 50%;
+            &-tl {
+                top: -4px;
+                left: -4px;
+            }
+            &-tr {
+                top: -4px;
+                right: -4px;
+            }
+            &-bl {
+                bottom: -4px;
+                left: -4px;
+            }
+            &-br {
+                bottom: -4px;
+                right: -4px;
+            }
+        }
+        &-t {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            .dnds-bar-radius {
+                top: -4px;
+                left: 50%;
+                margin-left: -4px;
+            }
+        }
+        &-r {
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 100%;
+            .dnds-bar-radius {
+                top: 50%;
+                right: -4px;
+                margin-top: -4px;
+            }
+        }
+        &-b {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            .dnds-bar-radius {
+                bottom: -4px;
+                left: 50%;
+                margin-left: -4px;
+            }
+        }
+        &-l {
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 100%;
+            .dnds-bar-radius {
+                top: 50%;
+                left: -4px;
+                margin-top: -4px;
+            }
+        }
+    }
+}

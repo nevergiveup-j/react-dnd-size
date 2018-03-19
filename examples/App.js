@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import { DragContext, DragTarget } from '../src';
 
 import './App.scss';
 
@@ -16,8 +17,15 @@ class App extends Component {
   render() {
     return (
       <div className="form-wrap">
-        1111111<br />
-        2222222
+        <DragContext>
+          <DragTarget style={{ top: '20px', left: '30px' }}>
+            <div className="targe-text">test..</div>
+          </DragTarget>
+          <DragTarget style={{ top: '20px', left: '230px' }}>
+            <div className="targe-text">test1..</div>
+          </DragTarget>
+        </DragContext>
+        <div>1111</div>
       </div>
     );
   }

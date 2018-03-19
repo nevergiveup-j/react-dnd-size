@@ -1,19 +1,28 @@
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
 body {
   background: #eee;
 }
 
-.form-wrap {
-  .button-inner {
-    padding: 20px 10px;
-  }
-  .button-submit {
-    display: block;
-    width: 100%;
-    padding: 10px 0;
-    background: #12c287;
-    border: none;
-    color: #fff;
-  }
+.dnds-context {
+  width: 50vw;
+  height: 50vh;
+  margin: 10vh auto 0;
+}
 
+.targe-text {
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  height: 60px;
+  background: #fff;
 }

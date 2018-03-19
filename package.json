@@ -2,20 +2,16 @@
   "name": "stores.js",
   "version": "1.0.3",
   "author": "nevergivejun@163.com",
-  "description": "storage",
+  "description": "react-dnd-size",
   "keywords": [
-    "react storage",
-    "store.js",
-    "storage",
-    "stores",
-    "store"
+    "drag-drop"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nevergiveup-j/stores.js.git"
+    "url": "https://github.com/nevergiveup-j/react-dnd-size.git"
   },
   "bugs": {
-    "url": "https://github.com/nevergiveup-j/stores.js/issues"
+    "url": "https://github.com/nevergiveup-j/react-dnd-size/issues"
   },
   "license": "MIT",
   "main": "./lib/index.js",
@@ -30,6 +26,7 @@
     "pre-commit": "lint-staged"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "react": "^15.5.0",
     "react-dom": "^15.5.0"
